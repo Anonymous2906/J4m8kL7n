@@ -70,9 +70,9 @@
 </addon><addon id="repo.J4m8kL7n" name="U2P Contrib's Addons Repository" version="0.0.1" provider-name="Anonymous2906">
     <extension point="xbmc.addon.repository" name="Anonymous2906 Addons Repository">
         <dir>
-            <info compressed="false">https://raw.githubusercontent.com/Anonymous2906/repo.weebox/master/repo/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/Anonymous2906/repo.weebox/master/repo/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/Anonymous2906/repo.weebox/master/repo/zips/</datadir>
+            <info compressed="false">https://raw.githubusercontent.com/Anonymous2906/repo.J4m8kL7n/master/repo/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/Anonymous2906/repo.J4m8kL7n/master/repo/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/Anonymous2906/repo.J4m8kL7n/master/repo/zips/</datadir>
         </dir>
     </extension>
     <extension point="xbmc.addon.metadata">
