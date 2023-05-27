@@ -114,12 +114,17 @@ class FenInfo(pyxbmct.AddonDialogWindow):
         try:
             title, overview, year, genre, backdrop, popu, numId, poster, duration, self.saga = liste[0]
             backdrop = "http://image.tmdb.org/t/p/" + size[1] + backdrop
-            poster = "http://image.tmdb.org/t/p/" + size[0] + poster
         except:
-            return
+            backdrop = ""
+        try:
+            poster = "http://image.tmdb.org/t/p/" + size[0] + poster
+        except Exception as e:
+            poster = ""
+            #notice(e)
 
-        image = pyxbmct.Image(backdrop)
-        self.placeControl(image, 0, 7, rowspan=42, columnspan=23)
+        if backdrop:
+            image = pyxbmct.Image(backdrop)
+            self.placeControl(image, 0, 7, rowspan=42, columnspan=23)
 
         f = xbmcvfs.translatePath('special://home/addons/plugin.video.sendtokodiU2P/resources/png/fond.png')
         fond = pyxbmct.Image(f)
