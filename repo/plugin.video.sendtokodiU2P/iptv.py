@@ -1584,7 +1584,7 @@ def playMedia(params):
                 #    cmd = quote(linkCMD)
                 #    link = iptv.getInfos(iptv.createLink.format(cmd)).json()["js"]["cmd"].split(" ")[1]
     else:
-        link = params["lien"]
+        link = params["lien"] + ".ts"
     userAg = "|User-Agent=Mozilla"
     #userAg = "|User-Agent=VLC"
     result = {"url": link + userAg, "title": params["iptv"]}
