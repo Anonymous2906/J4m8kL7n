@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repo.J4m8kL7n" name="U2P Contrib's Addons Repository" version="0.0.2" provider-name="Anonymous2906">
+<addon id="repo.J4m8kL7n" name="U2P Contrib's Addons Repository" version="0.0.1" provider-name="Anonymous2906">
     <extension point="xbmc.addon.repository" name="Anonymous2906 Addons Repository">
         <dir>
             <info compressed="false">https://raw.githubusercontent.com/Anonymous2906/J4m8kL7n/master/repo/zips/addons.xml</info>
@@ -9,8 +9,8 @@
         </dir>
     </extension>
     <extension point="xbmc.addon.metadata">
-        <summary>U2P Addons Repository</summary>
-        <description>Repository U2Pplay Beta.</description>
+        <summary>U2P Contrib's Addons Repository</summary>
+        <description>Repository U2P Contributeurs.</description>
         <disclaimer></disclaimer>
         <platform>all</platform>
         <assets>
