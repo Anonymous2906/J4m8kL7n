@@ -1,0 +1,5 @@
+<addon id="addon.motdepasse.kodi" version="1.0" name="Addon de Mot de Passe" provider-name="Osmoze06">
+    <extension point="xbmc.python.script" library="main.py">
+        <description>Gestion du mot de passe d'accès au référentiel.</description>
+    </extension>
+</addon>
