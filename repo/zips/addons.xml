@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addons><addon id="plugin.program.u2paccess" version="1.5" name="U2Pplay Access" provider-name="Osmoze06">
+<addons><addon id="plugin.program.u2paccess" version="1.6" name="U2Pplay Access" provider-name="Osmoze06">
     
 	    <extension point="xbmc.python.pluginsource" library="main.py">
         <provides>executable</provides>
@@ -17,8 +17,8 @@
         <changelog>
             <en>
                 
-                    &lt;!-- Version 1.4: --&gt;
-                    - Ajout de fonctionnalités de mise à jour automatique.
+                    &lt;!-- Version 1.6: --&gt;
+                    - Ajout de fonctionnalités de mise à jour.
                     - Correction de bugs mineurs.
                     - Améliorations de la stabilité.
                 

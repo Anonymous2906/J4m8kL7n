@@ -1,14 +1,2 @@
 [COLOR deepskyblue]10/10/2023 - VERSION 0.9.24.beta8[/COLOR]
 - Fix nombre de saisons dans Séries VOD IPTV
-
-[COLOR deepskyblue]04/10/2023 - VERSION 0.9.24.beta5[/COLOR]
-- Ajout fonction recherche films dans VOD IPTV
-- Ajout fonction recherche films dans VOD IPTV
----------------------------------------------------------------------------------------
-[COLOR deepskyblue]19/09/2023 - VERSION 0.9.23.beta8[/COLOR]
-- Fix problème de lecture avec la New Fenêtre Info d'activée
-- Fix vue après la 1ere page (poster) de sélection du film
-- Message d'avertissement de désynchronisation Trakt
----------------------------------------------------------------------------------------
-[COLOR deepskyblue]18/09/2023 - VERSION 0.9.23.beta6[/COLOR]
-- Fix listes TMDB
