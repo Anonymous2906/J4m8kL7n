@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repo.J4m8kL7n" name="U2P Addons Repository" version="0.0.2" provider-name="Anonymous2906">
+<addon id="repo.J4m8kL7n" name="U2Pplay Addons Repository" version="0.0.4" provider-name="Anonymous2906">
     <extension point="xbmc.addon.repository" name="Anonymous2906 Addons Repository">
         <dir>
             <info compressed="false">https://raw.githubusercontent.com/Anonymous2906/J4m8kL7n/master/repo/zips/addons.xml</info>
@@ -7,11 +7,8 @@
             <datadir zip="true">https://raw.githubusercontent.com/Anonymous2906/J4m8kL7n/master/repo/zips/</datadir>
         </dir>
     </extension>
-	<extension point="xbmc.python.script" library="script.accespersonnalise">
-    <name>Accès Personnalisé</name>
-    </extension>
     <extension point="xbmc.addon.metadata">
-        <summary>U2P Addons Repository</summary>
+        <summary>U2Pplay Addons Repository</summary>
         <description>Repository U2Pplay Beta.</description>
         <disclaimer></disclaimer>
         <platform>all</platform>

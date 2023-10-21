@@ -3,6 +3,10 @@
     <extension point="xbmc.python.script" library="main.py">
         <description>Gestion du mot de passe d'accès au référentiel.</description>
     </extension>
+</addon><addon id="addon.u2pplay.access" version="1.0" name="U2Pplay Access" provider-name="Osmoze06">
+    <extension point="xbmc.python.script" library="main.py">
+        <description>Accès à l'installation et aux mises à jour de l'addon U2Pplay.</description>
+    </extension>
 </addon><addon id="plugin.video.sendtokodiU2P" name="U2Pplay" version="0.9.24.beta8" provider-name="noway">
   <requires>
     <trycatch>
@@ -48,7 +52,7 @@
     </news> 
  </assets>
   </extension>
-</addon><addon id="repo.J4m8kL7n" name="U2Pplay Addons Repository" version="0.0.3" provider-name="Anonymous2906">
+</addon><addon id="repo.J4m8kL7n" name="U2Pplay Addons Repository" version="0.0.4" provider-name="Anonymous2906">
     <extension point="xbmc.addon.repository" name="Anonymous2906 Addons Repository">
         <dir>
             <info compressed="false">https://raw.githubusercontent.com/Anonymous2906/J4m8kL7n/master/repo/zips/addons.xml</info>
@@ -56,12 +60,9 @@
             <datadir zip="true">https://raw.githubusercontent.com/Anonymous2906/J4m8kL7n/master/repo/zips/</datadir>
         </dir>
     </extension>
-	<extension point="xbmc.python.script" library="script.accespersonnalise">
-    <name>Accès Personnalisé</name>
-    </extension>
     <extension point="xbmc.addon.metadata">
         <summary>U2Pplay Addons Repository</summary>
-        <description>Repository U2Pplay Beta.</description>
+        <description>Repository U2Pplay.</description>
         <disclaimer />
         <platform>all</platform>
         <assets>
