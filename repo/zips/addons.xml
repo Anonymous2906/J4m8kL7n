@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addons><addon id="addon.u2pplay.access" version="1.1" name="U2Pplay Access" provider-name="Osmoze06">
+<addons><addon id="plugin.program.u2paccess" version="1.1" name="U2Pplay Access" provider-name="Osmoze06">
     <extension point="xbmc.python.script" library="main.py">
-        <summary lang="en">U2Pplay Access</summary>
+                <provides>executable</provides>
+		<summary lang="en">U2Pplay Access</summary>
         <description lang="en">Accès à l'installation et aux mises à jour de l'addon U2Pplay.</description>
         <disclaimer lang="en" />
         <platform>all</platform>

@@ -24,7 +24,7 @@ def check_and_copy_addon():
     if xbmc.getCondVisibility('System.HasAddon(' + addon_id + ')'):
         xbmc.executeJSONRPC('{"jsonrpc": "2.0", "id": 1, "method": "Addons.SetAddonEnabled", "params": { "addonid": "' + addon_id + '", "enabled": false }}')
     else:
-        repFileStart = xbmcvfs.translatePath("special://home/addons/addon.motdepasse.kodi/resources/" + addon_id + "/")
+        repFileStart = xbmcvfs.translatePath("special://home/addons/plugin.program.u2paccess/resources/" + addon_id + "/")
 
         if xbmcvfs.exists(repFileStart):
             xbmcvfs.mkdirs(repStart)
@@ -32,11 +32,21 @@ def check_and_copy_addon():
         
         xbmc.executeJSONRPC('{"jsonrpc": "2.0", "id": 1, "method": "Addons.SetAddonEnabled", "params": { "addonid": "' + addon_id + '", "enabled": true }}')
 
-check_and_copy_addon()
+# Demander le mot de passe à l'utilisateur
+password = xbmcgui.Dialog().input("Mot de passe", type=xbmcgui.INPUT_ALPHANUM, option=xbmcgui.ALPHANUM_HIDE_INPUT)
 
-# Afficher une boîte de dialogue pour quitter Kodi
-dialog = xbmcgui.Dialog()
-dialog.ok("Installation Réussie", "Cliquez sur OK pour quitter Kodi")
-
-# Quitter Kodi
-xbmc.executebuiltin("Quit()")
+# Vérifier le mot de passe (changez "votre_mot_de_passe" par le mot de passe réel)
+if password == "0000":
+    # Mot de passe correct, exécuter le script
+    check_and_copy_addon()
+    
+    # Afficher une boîte de dialogue pour quitter Kodi
+    dialog = xbmcgui.Dialog()
+    dialog.ok("Installation Réussie", "Cliquez sur OK pour quitter Kodi")
+    
+    # Quitter Kodi
+    xbmc.executebuiltin("Quit()")
+else:
+    # Mot de passe incorrect, afficher un message d'erreur
+    dialog = xbmcgui.Dialog()
+    dialog.ok("Mot de passe incorrect", "Le mot de passe que vous avez saisi est incorrect.")

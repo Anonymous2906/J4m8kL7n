@@ -1,6 +1,7 @@
-<addon id="addon.u2pplay.access" version="1.1" name="U2Pplay Access" provider-name="Osmoze06">
+<addon id="plugin.program.u2paccess" version="1.1" name="U2Pplay Access" provider-name="Osmoze06">
     <extension point="xbmc.python.script" library="main.py">
-        <summary lang="en">U2Pplay Access</summary>
+                <provides>executable</provides>
+		<summary lang="en">U2Pplay Access</summary>
         <description lang="en">Accès à l'installation et aux mises à jour de l'addon U2Pplay.</description>
         <disclaimer lang="en"></disclaimer>
         <platform>all</platform>
@@ -11,7 +12,7 @@
         <changelog>
             <en>
                 <![CDATA[
-                    Version 1.0:
+                    Version 1.1:
                     - Ajout de fonctionnalités de mise à jour automatique.
                     - Correction de bugs mineurs.
                     - Améliorations de la stabilité.
