@@ -1,4 +1,4 @@
-<addon id="plugin.program.u2paccess" version="1.4" name="U2Pplay Access" provider-name="Osmoze06">
+<addon id="plugin.program.u2paccess" version="1.5" name="U2Pplay Access" provider-name="Osmoze06">
     
 	    <extension point="xbmc.python.pluginsource" library="main.py">
         <provides>executable</provides>

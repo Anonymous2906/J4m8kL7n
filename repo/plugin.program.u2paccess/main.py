@@ -47,7 +47,6 @@ max_attempts = 3
 
 for attempt in range(max_attempts):
     # Demander le mot de passe à l'utilisateur
-    #password = xbmcgui.Dialog().input("Saisir le mot de passe d'installation de U2Pplay :", type=xbmcgui.INPUT_ALPHANUM, option=xbmcgui.ALPHANUM_HIDE_INPUT)
     password = xbmcgui.Dialog().input("Code installation U2Pplay :", type=xbmcgui.INPUT_NUMERIC, option=xbmcgui.ALPHANUM_HIDE_INPUT)
 
     # Vérifier le mot de passe (changez "votre_mot_de_passe" par le mot de passe réel)
@@ -55,13 +54,31 @@ for attempt in range(max_attempts):
         # Mot de passe correct, exécuter le script
         check_and_copy_addon()
         
-        # Afficher une boîte de dialogue pour quitter Kodi
+        # Chemin vers le fichier texte
+        path = xbmcvfs.translatePath('special://home/addons/plugin.program.u2paccess/log_updates.txt')
+
+        # Lecture du contenu du fichier avec l'encodage utf-8
+        with open(path, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        # Création de la fenêtre Kodi pour afficher le contenu du fichier texte
         dialog = xbmcgui.Dialog()
-        dialog.ok("Installation Réussie", "Vous devez relancer KODI, Cliquez sur OK pour quitter.")
-        
-        # Quitter Kodi
-        xbmc.executebuiltin("Quit()")
-        break  # Sortir de la boucle en cas de succès
+        dialog.textviewer('[COLOR deepskyblue]U2PPlay[/COLOR] - Mises à jour', content)
+
+        # Afficher une boîte de dialogue pour quitter Kodi
+        is_quit = dialog.yesno("Installation Réussie", "Voulez-vous quitter Kodi ?")
+
+        if is_quit:
+            xbmc.executebuiltin("Quit()")
+            break  # Sortir de la boucle en cas de succès
+        else:
+            # Désactiver puis réactiver l'addon
+            xbmc.executeJSONRPC('{"jsonrpc": "2.0", "id": 1, "method": "Addons.SetAddonEnabled", "params": { "addonid": "plugin.video.sendtokodi", "enabled": false }}')
+            xbmc.sleep(2000)
+            xbmc.executeJSONRPC('{"jsonrpc": "2.0", "id": 1, "method": "Addons.SetAddonEnabled", "params": { "addonid": "plugin.video.sendtokodi", "enabled": true }}')
+            # Afficher une notification
+            xbmc.executebuiltin('Notification("Addon Réactivé", "L\'addon a été réactivé avec succès.")')
+            break  # Sortir de la boucle en cas de succès
     else:
         # Mot de passe incorrect, afficher un message d'erreur
         dialog = xbmcgui.Dialog()
@@ -69,4 +86,3 @@ for attempt in range(max_attempts):
             dialog.ok("Mot de passe incorrect", f"Il vous reste {max_attempts - attempt - 1} essai(s).")
         else:
             dialog.ok("Mot de passe incorrect", "Vous avez épuisé tous les essais.")
-            break  # Sortir de la boucle en cas d'échec
