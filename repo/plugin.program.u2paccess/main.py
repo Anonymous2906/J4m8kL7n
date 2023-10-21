@@ -77,7 +77,7 @@ for attempt in range(max_attempts):
             xbmc.sleep(2000)
             xbmc.executeJSONRPC('{"jsonrpc": "2.0", "id": 1, "method": "Addons.SetAddonEnabled", "params": { "addonid": "plugin.video.sendtokodi", "enabled": true }}')
             # Afficher une notification
-            xbmc.executebuiltin('Notification("Addon Réactivé", "L\'addon a été réactivé avec succès.")')
+            xbmc.executebuiltin('Notification("U2Pplay", "L\'addon a été mis à jour avec succès.")')
             break  # Sortir de la boucle en cas de succès
     else:
         # Mot de passe incorrect, afficher un message d'erreur
