@@ -1,4 +1,14 @@
 import xbmc
+
+# Installation de l'addon "script.module.pyxbmct"
+if not xbmc.getCondVisibility('System.HasAddon(script.module.pyxbmct)'):
+    xbmc.executebuiltin("InstallAddon(script.module.pyxbmct)")
+    
+    # Attendre jusqu'à ce que l'addon soit installé
+    while not xbmc.getCondVisibility('System.HasAddon(script.module.pyxbmct)'):
+        xbmc.sleep(5000)  # Attendre une seconde (ajustez au besoin)
+
+# Le reste du script
 import xbmcaddon
 import xbmcvfs
 import xbmcgui
@@ -29,24 +39,34 @@ def check_and_copy_addon():
         if xbmcvfs.exists(repFileStart):
             xbmcvfs.mkdirs(repStart)
             copy_directory_contents(repFileStart, repStart)
-        
+
         xbmc.executeJSONRPC('{"jsonrpc": "2.0", "id": 1, "method": "Addons.SetAddonEnabled", "params": { "addonid": "' + addon_id + '", "enabled": true }}')
 
-# Demander le mot de passe à l'utilisateur
-password = xbmcgui.Dialog().input("Mot de passe", type=xbmcgui.INPUT_ALPHANUM, option=xbmcgui.ALPHANUM_HIDE_INPUT)
+# Nombre maximum d'essais
+max_attempts = 3
 
-# Vérifier le mot de passe (changez "votre_mot_de_passe" par le mot de passe réel)
-if password == "0000":
-    # Mot de passe correct, exécuter le script
-    check_and_copy_addon()
-    
-    # Afficher une boîte de dialogue pour quitter Kodi
-    dialog = xbmcgui.Dialog()
-    dialog.ok("Installation Réussie", "Cliquez sur OK pour quitter Kodi")
-    
-    # Quitter Kodi
-    xbmc.executebuiltin("Quit()")
-else:
-    # Mot de passe incorrect, afficher un message d'erreur
-    dialog = xbmcgui.Dialog()
-    dialog.ok("Mot de passe incorrect", "Le mot de passe que vous avez saisi est incorrect.")
+for attempt in range(max_attempts):
+    # Demander le mot de passe à l'utilisateur
+    #password = xbmcgui.Dialog().input("Saisir le mot de passe d'installation de U2Pplay :", type=xbmcgui.INPUT_ALPHANUM, option=xbmcgui.ALPHANUM_HIDE_INPUT)
+    password = xbmcgui.Dialog().input("Code installation U2Pplay :", type=xbmcgui.INPUT_NUMERIC, option=xbmcgui.ALPHANUM_HIDE_INPUT)
+
+    # Vérifier le mot de passe (changez "votre_mot_de_passe" par le mot de passe réel)
+    if password == "0000":
+        # Mot de passe correct, exécuter le script
+        check_and_copy_addon()
+        
+        # Afficher une boîte de dialogue pour quitter Kodi
+        dialog = xbmcgui.Dialog()
+        dialog.ok("Installation Réussie", "Vous devez relancer KODI, Cliquez sur OK pour quitter.")
+        
+        # Quitter Kodi
+        xbmc.executebuiltin("Quit()")
+        break  # Sortir de la boucle en cas de succès
+    else:
+        # Mot de passe incorrect, afficher un message d'erreur
+        dialog = xbmcgui.Dialog()
+        if attempt < max_attempts - 1:
+            dialog.ok("Mot de passe incorrect", f"Il vous reste {max_attempts - attempt - 1} essai(s).")
+        else:
+            dialog.ok("Mot de passe incorrect", "Vous avez épuisé tous les essais.")
+            break  # Sortir de la boucle en cas d'échec
