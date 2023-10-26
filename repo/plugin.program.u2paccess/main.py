@@ -1,4 +1,5 @@
 import xbmc
+import hashlib
 
 # Installation de l'addon "script.module.pyxbmct"
 if not xbmc.getCondVisibility('System.HasAddon(script.module.pyxbmct)'):
@@ -49,8 +50,11 @@ for attempt in range(max_attempts):
     # Demander le mot de passe à l'utilisateur
     password = xbmcgui.Dialog().input("Code installation U2Pplay :", type=xbmcgui.INPUT_NUMERIC, option=xbmcgui.ALPHANUM_HIDE_INPUT)
 
-    # Vérifier le mot de passe (changez "votre_mot_de_passe" par le mot de passe réel)
-    if password == "0000":
+    # Hacher le mot de passe saisi
+    hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
+
+    # Vérifier le mot de passe haché (remplacez le hachage du mot de passe réel)
+    if hashed_password == "bd27d7b3aee8f6ea296f3d29452b3fd181deb9326209fc4fd843bb69aa2aa389":
         # Mot de passe correct, exécuter le script
         check_and_copy_addon()
         
