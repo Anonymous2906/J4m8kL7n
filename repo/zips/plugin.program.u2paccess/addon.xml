@@ -1,4 +1,4 @@
-<addon id="plugin.program.u2paccess" version="1.8" name="U2Pplay Access" provider-name="Osmoze06">
+<addon id="plugin.program.u2paccess" version="1.9" name="U2Pplay Access" provider-name="Osmoze06">
     
 	    <extension point="xbmc.python.pluginsource" library="main.py">
         <provides>executable</provides>
@@ -16,7 +16,7 @@
         <changelog>
             <en>
                 <![CDATA[
-                    <!-- Version 1.8: -->
+                    <!-- Version 1.9: -->
                     - Ajout de fonctionnalités de mise à jour.
                     - Correction de bugs mineurs.
                     - Améliorations de la stabilité.
