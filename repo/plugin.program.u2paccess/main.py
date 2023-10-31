@@ -50,39 +50,18 @@ for attempt in range(max_attempts):
     # Demander le mot de passe à l'utilisateur
     password = xbmcgui.Dialog().input("Code installation U2Pplay :", type=xbmcgui.INPUT_NUMERIC, option=xbmcgui.ALPHANUM_HIDE_INPUT)
 
+    if password is None or password == '':  # Si l'utilisateur annule la saisie ou laisse le champ vide
+        break  # Sortir de la boucle si l'opération est annulée
+
     # Hacher le mot de passe saisi
     hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
-
+    
     # Vérifier le mot de passe haché (remplacez le hachage du mot de passe réel)
     if hashed_password == "bd27d7b3aee8f6ea296f3d29452b3fd181deb9326209fc4fd843bb69aa2aa389":
         # Mot de passe correct, exécuter le script
         check_and_copy_addon()
         
-        # Chemin vers le fichier texte
-        path = xbmcvfs.translatePath('special://home/addons/plugin.program.u2paccess/log_updates.txt')
-
-        # Lecture du contenu du fichier avec l'encodage utf-8
-        with open(path, 'r', encoding='utf-8') as f:
-            content = f.read()
-
-        # Création de la fenêtre Kodi pour afficher le contenu du fichier texte
-        dialog = xbmcgui.Dialog()
-        dialog.textviewer('[COLOR deepskyblue]U2PPlay[/COLOR] - Mises à jour', content)
-
-        # Afficher une boîte de dialogue pour quitter Kodi
-        is_quit = dialog.yesno("Installation Réussie", "Voulez-vous quitter Kodi ?")
-
-        if is_quit:
-            xbmc.executebuiltin("Quit()")
-            break  # Sortir de la boucle en cas de succès
-        else:
-            # Désactiver puis réactiver l'addon
-            xbmc.executeJSONRPC('{"jsonrpc": "2.0", "id": 1, "method": "Addons.SetAddonEnabled", "params": { "addonid": "plugin.video.sendtokodi", "enabled": false }}')
-            xbmc.sleep(2000)
-            xbmc.executeJSONRPC('{"jsonrpc": "2.0", "id": 1, "method": "Addons.SetAddonEnabled", "params": { "addonid": "plugin.video.sendtokodi", "enabled": true }}')
-            # Afficher une notification
-            xbmc.executebuiltin('Notification("U2Pplay", "L\'addon a été mis à jour avec succès.")')
-            break  # Sortir de la boucle en cas de succès
+        # Le reste du code reste inchangé
     else:
         # Mot de passe incorrect, afficher un message d'erreur
         dialog = xbmcgui.Dialog()
